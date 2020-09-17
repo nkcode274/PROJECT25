@@ -4,7 +4,7 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Render = Matter.Render;
 
-var dustbin, paper, ground	
+var trashcan, waste, floor	
 var world;
 
 
@@ -16,9 +16,9 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 	
-	paper=new paper(200,450,70);
-	ground=new ground(width/2,670,width,20);
-	dustbin=new dustbin(1200,650);
+	waste=new paper(200,450,70);
+	floor=new ground(width/2,670,width,20);
+	trashcan=new dustbin(1200,650);
 	
 
 	var render = Render.create({
@@ -41,22 +41,23 @@ function draw() {
   rectMode(CENTER);
   background(230);
   
-  paperObject.display();
-  groundObject.display();
-  dustbinObj.display();
+  waste.display();
+  floor.display();
+  trashcan.display();
 
   
   drawSprites()
  
   
   
+	
  
 }
 
 function keyPressed() {
   	if (keyCode === UP_ARROW) {
 
-    	Matter.Body.applyForce(paper.body,paper.body.position,{x:130,y:-145});
+    	Matter.Body.applyForce(waste.body,waste.body.position,{x:130,y:-145});
 
     
   	}
